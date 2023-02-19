@@ -1,0 +1,325 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    outline: 0px;
+    box-sizing: border-box;
+}
+
+.contentMagine {
+    width: 12px;
+    height: 24px;
+    font-size: 24px;
+    padding-top: 18px;
+}
+
+header {
+    font-family:'Courier New', Courier, monospace;
+    background-color: black;
+    padding: 16px 32px;
+}
+
+header nav {
+    height: 64px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header button.phone-Btn {
+    display: none;
+    padding: 4px;
+    margin: 0px;
+}
+
+header ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    z-index: 1;
+    padding: 0px;
+}
+
+header li {
+    margin: 0px 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.55s;
+    border-radius: 16px;
+    word-break: break-all;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+header li:hover {
+    cursor: pointer;
+    background-color: #6d16c3;
+}
+
+header a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+header .symbolCompany {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+header .imgCompany {
+    width: 50px;
+    height: 50px;
+    margin-right: 8px;
+}
+
+header .imgCompany::selection {
+    background-color: transparent;
+}
+
+header .textCompany {
+    font-size: 32px;
+    font-variant: small-caps;
+    padding-bottom: 4px;
+    color: rgb(30, 224, 221);
+}
+
+header .textCompany::selection {
+    background-color: transparent;
+}
+
+@keyframes iPadShowContent {
+    from {
+        opacity: 0;
+        transform: translate(122%, -2%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0%, -2%);
+    }
+}
+
+@keyframes iPadCloseContent {
+    from {
+        opacity: 1;
+        transform: translate(0%, -2%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(122%, -2%);
+    }
+}
+
+@keyframes phoneShowContent {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes phoneCloseContent {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    header li {
+        font-size: 18px !important;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    header li {
+        font-size: 14px !important;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    header .textCompany {
+        font-size: 24px !important;
+    }
+}
+
+@media only screen and (max-width: 910px) {
+    header {
+        padding: 16px;
+    }
+
+    header .phone-Content>button.phone-Btn {
+        display: block;
+        margin: 0px;
+        background-color: transparent;
+        border: 0px;
+        cursor: pointer;
+    }
+
+    header ul {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        width: auto;
+        position: absolute;
+        background-color: #72bcd4;
+        right: 0px;
+        transform: translate(0%, -2%);
+    }
+
+    header li {
+        font-size: 24px !important;
+        width: 100%;
+        padding: 16px var(--padding-width-li) !important;
+        text-align: center;
+        border-radius: 0px;
+    }
+
+    header li:hover {
+        background-color: #53cfb0;
+    }
+
+    :root {
+        --padding-width-li: 80px;
+    }
+}
+
+@media only screen and (max-width: 610px) {
+    header ul {
+        right: 0px;
+        top: 80px;
+        transform: translate(16px, 0%);
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    header .textCompany {
+        font-size: 18px;
+    }
+
+    header ul {
+        right: 0px;
+        top: 56px;
+        transform: translate(8px, 0%);
+        width: 100vw;
+    }
+
+    header li {
+        font-size: 18px !important;
+    }
+
+    .imgCompany {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .material-icons {
+        font-size: 32px !important;
+    }
+
+    header {
+        padding: 8px !important;
+    }
+
+    header nav {
+        height: 48px !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .textCompany {
+        font-size: 20px !important;
+    }
+
+    .imgCompany {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    header li {
+        font-size: 14px !important;
+    }
+}
+
+@media only screen and (max-width: 290px) {
+    .textCompany {
+        font-size: 18px !important;
+    }
+
+    .imgCompany {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .material-icons {
+        font-size: 26px !important;
+    }
+
+    header li {
+        font-size: 12px !important;
+        padding: 8px !important;
+    }
+}
+
+@media only screen and (max-width: 240px) {
+    .textCompany {
+        font-size: 16px !important;
+    }
+
+    .imgCompany {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .material-icons {
+        font-size: 26px !important;
+    }
+}
+
+@media only screen and (max-width: 240px) {
+    .textCompany {
+        font-size: 12px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .imgCompany {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .material-icons {
+        font-size: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 180px) {
+    .textCompany {
+        font-size: 12px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .imgCompany {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .material-icons {
+        font-size: 16px !important;
+    }
+}

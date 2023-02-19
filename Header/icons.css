@@ -1,0 +1,43 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+header .header-icon {
+    font-size: 32px; 
+    color: white;
+}
+
+header .header-span {
+    padding-left: 8px !important;
+}
+
+header .roundAnimation {
+    animation: roundAnimation 5s linear infinite !important;
+}
+
+header .opacityAnimation {
+    animation: opacityAnimation 3s linear infinite !important;
+}
+
+@keyframes roundAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes opacityAnimation {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}

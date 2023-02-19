@@ -1,0 +1,15 @@
+runtime: php72
+
+handlers:
+- url: /(.+\.(gif|png|jpg|css|js|map|PNG))$
+  static_files: 1
+  upload: .+\.(gif|png|jpg|css|js|map|PNG)$
+
+- url: /.*
+  script: auto
+
+env_variables:
+  CLOUDSQL_USER: max
+  CLOUDSQL_PASSWORD: 123googlecloud123
+  CLOUDSQL_DB: countries
+  CLOUDSQL_DSN: /cloudsql/countries-374719:us-central1:countries23 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="table.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Table</title>
+</head>
+<body onload="loadTable()">
+    <main>
+        <div class="topManage">
+            <button class="setBtn">
+                <i class="material-icons" style="font-size: 28px;">add</i>
+                <span class="textSetBtn">Add Row</span>
+            </button>
+            <input class="searchTable" type="search" id="searchTable" placeholder="Search...">
+        </div>
+        <table class="table">
+            <thead>
+                <th></th>
+                <th>Country</th>
+            </thead>
+            <tbody id="dataTable">
+                <tr onclick="getRowInfo(this)">
+                    <td class="settings">
+                        <i onclick="deleteRow()" class="material-icons delete">delete</i>
+                        <i onclick="changeRow()" class="material-icons change">create</i>
+                    </td>
+                    <td class="country">Belarus</td>
+                </tr>
+                <tr onclick="getRowInfo(this)">
+                    <td class="settings">
+                        <i onclick="deleteRow()" class="material-icons delete">delete</i>
+                        <i onclick="changeRow()" class="material-icons change">create</i>
+                    </td>
+                    <td class="country">Belarus</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function loadTable() {
+            const tbody = document.querySelector("tbody#dataTable");
+            console.log(tbody);
+
+            let contents;
+
+            /*
+            $.ajax({
+                url: "",
+                dataType: "json",
+                type: "post",
+                data: contents,
+                success: function(data) {
+
+                }
+            });
+            */
+        }
+    </script>
+</body>
+</html>
