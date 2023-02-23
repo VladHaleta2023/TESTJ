@@ -1,0 +1,418 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    width: 0px;
+}
+
+main .setBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #6d16c3;
+}
+
+.table thead {
+    text-align: left;
+}
+
+.table td {
+    line-height: 1.2;
+    word-break: break-all;
+}
+
+.table td, .table th {
+    padding: 16px 24px;
+    font-size: 24px;
+}
+
+.table th {
+    background-color: #6d16c3;
+    color: white;
+    font-size: 32px;
+    padding: 24px;
+}
+
+.table tbody tr:hover {
+    cursor: pointer;
+    background-color: #d3f2ff;
+    color:#57139b;
+    transition: 0.65s;
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.table tbody tr:hover {
+    transform: scale(1.02);
+}
+
+.table th::selection, .table td::selection, i.icon-set::selection, .table .fileImgLink::selection {
+    background-color: transparent;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 64px;
+}
+
+td.settings {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+i.material-icons.add {
+    font-size: 28px;
+}
+
+i.delete {
+    font-size: 28px;
+    transition: 1s;
+    padding: 6px 12px; 
+    border-radius: 12px; 
+    color:red; 
+    font-size: 28px; 
+    background-color:  rgb(209, 225, 255); 
+    box-shadow: 0px 0px 32px rgb(255, 19, 6); 
+    margin-right: 16px;
+}
+
+i.change {
+    transition: 1s;
+    font-size: 28px;
+    padding: 6px 12px; 
+    border-radius: 12px; 
+    color:rgb(56, 117, 228);
+    font-size: 28px; 
+    background-color:  rgb(209, 225, 255); 
+    box-shadow: 0px 0px 32px rgb(74, 128, 231);
+}
+
+i.delete:hover {
+    color: white;
+    background-color: red;
+    transform: scale(1.1);
+}
+
+i.change:hover {
+    color: white;
+    background-color: rgb(56, 117, 228);
+    transform: scale(1.1);
+}
+
+.table td.country {
+    max-width: 700px;
+    min-width: 700px;
+}
+
+main button.setBtn .textSetBtn {
+    padding-left: 2px;
+    padding-top: 2px;
+    font-size: 18px;
+}
+
+main button.setBtn {
+    position: relative;
+    transition: 1s;
+    padding: 8px 12px;
+    border: 1px solid rgb(66, 154, 126);
+    background-color: transparent;
+    box-shadow: 0px 0px 58px rgb(27, 212, 172);
+    border-radius: 18px;
+    color: rgb(66, 154, 126);
+    cursor: pointer;
+}
+
+main button.setBtn:hover {
+    background-color: rgb(66, 154, 126);
+    color: white;
+}
+
+main section.topManage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+main .searchTable {
+    padding: 10px;
+    font-size: 20px;
+    margin-left: 24px;
+    width: 620px;
+    transition: 0.65s;
+    border: 1px solid rgb(164, 191, 240);
+    box-shadow: 0px 0px 70px rgb(69, 114, 197);
+}
+
+main .searchTable:focus {
+    background-color: rgb(146, 179, 240);
+    color:white;
+    transform: scale(1.01);
+}
+
+main .searchTable:focus::selection {
+    background-color: #6d16c3;
+}
+
+main .searchTable:focus::placeholder {
+    color: gray;
+}
+
+.table span.notFound {
+    color: red !important;
+    font-size: 32px !important;
+}
+
+@media only screen and (max-width: 900px) {
+    .table td.country {
+        max-width: 580px !important;
+        min-width: 580px !important;
+        padding-left: 28px !important;
+    }
+
+    .table th {
+        font-size: 28px !important;
+    }
+
+    .table td {
+        font-size: 22px !important;
+    }
+
+    input.searchTable {
+        width: 500px !important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .table td.country {
+        max-width: 500px !important;
+        min-width: 500px !important;
+        padding-left: 22px !important;
+    }
+
+    main .searchTable {
+        width: 400px !important;
+    }
+
+    .table th {
+        padding: 18px !important;
+        font-size: 26px !important;
+    }
+
+    .table td {
+        font-size: 20px !important;
+    }
+
+    i.delete, i.change {
+        font-size: 22px !important;
+    }
+
+    main section.topManage {
+        margin-bottom: 26px !important;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .table td.country {
+        max-width: 380px !important;
+        min-width: 380px !important;
+        padding-left: 16px !important;
+    }
+
+    input.searchTable {
+        width: 280px !important;
+    }
+
+    span.textSetBtn {
+        padding: 0px !important;
+        padding-left: 2px !important;
+        font-size: 14px !important;
+    }
+
+    .table th {
+        padding: 16px !important;
+        font-size: 18px !important;
+    }
+
+    .table td {
+        font-size: 16px !important;
+    }
+
+    .table td.settings, .table td.country {
+        padding: 12px !important;
+    }
+
+    i.delete {
+        margin-right: 8px;
+    }
+
+    i.delete, i.change {
+        font-size: 18px !important;
+    }
+
+    main section.topManage {
+        margin-bottom: 18px !important;
+    }
+
+    i.material-icons.add {
+        font-size: 22px !important;
+    }
+
+    main button.setBtn {
+        width: 120px !important;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .table td.country {
+        max-width: 280px !important;
+        min-width: 280px !important;
+        padding-left: 8px !important;
+    }
+
+    .textSetBtn {
+        padding: 0px !important;
+        padding-left: 2px !important;
+        font-size: 14px !important;
+    }
+
+    input.searchTable {
+        padding: 8px !important;
+    }
+
+    input.searchTable {
+        width: 180px !important;
+    }
+
+    i.material-icons.add {
+        font-size: 16px !important;
+    }
+
+    i.delete, i.change {
+        font-size: 16px !important;
+        padding: 3px 6px !important; 
+    }
+
+    .table th {
+        padding: 14px !important;
+        font-size: 16px !important;
+    }
+
+    .table td.settings, .table td.country {
+        padding: 8px !important;
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .table td.country {
+        max-width: 240px !important;
+        min-width: 240px !important;
+        padding-left: 8px !important;
+    }
+
+    span.textSetBtn {
+        padding: 0px !important;
+        padding-left: 2px !important;
+        font-size: 12px !important;
+    }
+
+    section.topManage {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    input.searchTable {
+        padding: 6px !important;
+    }
+
+    input.searchTable {
+        width: 240px !important;
+        margin-left: 0px !important;
+    }
+
+    i.material-icons {
+        font-size: 20px !important;
+    }
+
+    i.delete, i.change {
+        font-size: 16px !important;
+        padding: 3px 6px !important; 
+    }
+
+    .table th {
+        padding: 14px !important;
+        font-size: 16px !important;
+    }
+
+    main button.setBtn {
+        margin-bottom: 24px !important;
+    }
+
+    .table td.settings, .table td.country {
+        padding: 8px !important;
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    .table td.country {
+        max-width: 120px !important;
+        min-width: 120px !important;
+        padding-left: 8px !important;
+    }
+
+    .textSetBtn {
+        padding-bottom: 0px !important;
+        padding-left: 2px !important;
+        font-size: 12px !important;
+    }
+
+    section.topManage {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    main .searchTable {
+        padding: 8px !important;
+        font-size: 14px !important;
+    }
+
+    main .searchTable {
+        width: 140px !important;
+        margin-left: 0px !important;
+    }
+
+    i.material-icons {
+        font-size: 16px !important;
+    }
+
+    i.delete, i.change {
+        font-size: 16px !important;
+        padding: 3px 6px !important; 
+    }
+
+    .table th {
+        padding: 12px !important;
+        font-size: 14px !important;
+    }
+
+    .table td.settings, .table td.country {
+        padding: 8px !important;
+    }
+}
