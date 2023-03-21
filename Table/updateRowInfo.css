@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+table.rowInfoTable tr {
+    background-color: #BBE4E4;
+}
+
+table.rowInfoTable td.property {
+    background-color: #009191;
+    color: white;
+    width: 200px;
+    font-weight: bold;
+    text-align: end;
+    vertical-align: top;
+    padding: 12px 16px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 64px !important;
+    margin-bottom: 0px !important;
+}
+
+table.rowInfoTable td.value {
+    overflow-x: auto;
+    word-wrap: break-word;
+    background-color: #ccf;
+    padding: 12px 16px;
+}
+
+table.rowInfoTable td, table.rowInfoTable th {
+    font-size: 24px;
+    vertical-align: middle;
+    padding: 0px;
+    border-bottom: 1px solid #aaa;
+}
+
+table.rowInfoTable {
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+    margin-top: 64px;
+    height: calc(100% + 128px);
+}
+
+div.mainContentRowInfo {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    word-break: break-all;
+}
+
+.formRowInfo {
+    background-color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    padding: 32px 0px;
+    top: -96px;
+    left: 0;
+}
+
+.rowInfo {
+    z-index: 2;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #036E6E;
+    color: white;
+    font-size: 32px;
+    padding: 16px 24px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.mainContentRowInfo::-webkit-scrollbar {
+    width: 0px;
+}
+
+label.idRow {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 24px; 
+    color: #D5D5D5
+}
+
+.table td, .table th {
+    border: none; 
+    font-size: 24px;
+    vertical-align: middle; 
+}
+
+img.rowIngoImg {
+    max-width: 100%; 
+    min-width: 100%; 
+    border: 2px solid gray;
+    margin-bottom: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: center; align-items: center;
+}
+
+.btnRowInfo {
+    border: none;
+    font-size: 32px;
+    margin: 0px 8px;
+    padding: 8px 16px; 
+    border-radius: 12px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    background-color: blueviolet;
+    transition: 0.65s;
+}
+
+.btnRowInfo:hover {
+    transform: scale(1.05);
+}
+
+.btnRowInfo.green:hover {
+    background-color: green !important;
+}
+
+.btnRowInfo.orange:hover {
+    background-color: orange !important;
+}
+
+.textInputRowInfo {
+    width: 100%; 
+    font-size: 24px; 
+    resize: none;
+    background-color: transparent;
+    color: black; 
+    border: none;
+    word-wrap: break-word;
+}
+
+input::selection, table.rowInfoTable td::selection, textarea::selection {
+    background-color: blueviolet;
+    color: white;
+}
+
+div.centerPosition {
+    display: flex; 
+    width: 100%; 
+    justify-content: flex-end; 
+    align-items: center;
+}
+
+.textInputRowInfo:focus {
+    background-color: white !important;
+}

@@ -1,0 +1,87 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+main>button.btn-Generate {
+    background-color: white;
+    color: rgb(118, 205, 216);
+    padding: 16px 28px;
+    font-size: 32px;
+    border: 1px solid rgb(118, 205, 216);
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 32px;
+}
+
+main>button.btn-Generate:hover {
+    cursor: pointer;
+    transition: 0.8s;
+    -webkit-box-shadow: 0px 0px 32px 2px rgb(118, 205, 216);
+    -moz-box-shadow: 0px 0px 32px 2px rgb(118, 205, 216);
+    box-shadow: 0px 0px 32px 2px rgb(118, 205, 216);
+    background-color: rgb(118, 205, 216);
+    color: white;
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #197fc2;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: loader 1s linear infinite;
+}
+
+@keyframes loader {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+input.maxSize {
+    width: 300px;
+    font-size: 24px;
+    padding: 16px 18px;
+    border: none;
+    background: #f1f1f1;
+}
+
+.msg-Generate {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+}
+
+div.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mesInputText {
+    align-self: flex-start;
+    font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 32px;
+}
+
+.success {
+    color: #04AA6D;
+}
+
+.error {
+    color: red;
+}

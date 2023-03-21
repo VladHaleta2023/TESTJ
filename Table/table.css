@@ -1,0 +1,547 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    outline: 0px;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    width: 0px;
+}
+
+body {
+    position: relative;
+}
+
+main .setBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+div.btnWarning {
+    align-self: flex-end;
+}
+
+div.textmes {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+div.message.warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: var(--width-showMessage);
+    padding: 16px 28px;
+}
+
+.newRow {
+    animation-name: newRow;
+    animation-duration: 1.2s;
+    animation-iteration-count: 12;
+}
+
+@keyframes newRow {
+    0% {
+        background-color: rgb(207, 253, 243);
+    }
+    50% {
+        background-color: white;
+    }
+    100% {
+        background-color: rgb(207, 253, 243);
+    }
+}
+
+div.errMes {
+    display: none !important; 
+    padding: 4px 12px;
+}
+
+div#errAdd {
+    padding: 8px 16px;
+    width: calc(var(--width-showMessage) - 56px);
+    word-break: break-all;
+    margin-bottom: 24px;
+}
+
+strong.mesTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    word-break: break-all;
+}
+
+button.btnMes.error:hover {
+    background-color: #f44336;
+}
+
+button.btnMes.warning:hover {
+    background-color: #ffeb3b;
+}
+
+button.btnMes.info:hover {
+    background-color: #2196F3;
+}
+
+button.btnMes.success:hover {
+    background-color: #04AA6D;
+}
+
+strong.mesTitle.add {
+    padding-top: 4px;
+    min-width: 98px;
+}
+
+.mesTitle.message::after {
+    content: '';
+}
+
+button.btnMes {
+    padding: 7px 16px;
+    font-size: 20px;
+    background-color: #6d16c3;
+    color:white;
+    border: 0px;
+    margin: 0px 4px;
+}
+
+button.btnMes:hover {
+    background-color: #04AA6D;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button.btnMes.no:hover {
+    background-color: red !important;
+}
+
+input.inputInfo {
+    font-size: 18px;
+    padding: 8px 10px;
+    border: none;
+    margin: 0px 16px;
+    margin-bottom: 12px;
+    width: calc(var(--width-showMessage) - var(--kWidthInputInfo));
+}
+
+div.message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 24px;
+    padding: 16px;
+    margin-bottom: 8px;
+    width: var(--width-showMessage);
+    position: relative;
+}
+
+div.message::selection, strong.mesTitle::selection, input.inputInfo::selection {
+    background-color: #6d16c3;
+    color: white;
+}
+
+div.error {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+}
+
+span#textErr::selection, .error::selection, div.success::selection, div.info::selection, div.warning::selection {
+    background-color: #6d16c3;
+    color: white;
+}
+
+div.success {
+    background-color: #ddffdd;
+    border-left: 6px solid #04AA6D;
+}
+
+div.info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+}
+
+div.warning {
+    background-color: #ffffcc;
+    border-left: 6px solid #ffeb3b;
+}
+
+main section.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    width: 300px;
+    top: 0;
+}
+
+div.errAddShow {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 16px;
+}
+
+.btnMes.close {
+    padding: 9px 16px !important;
+    border: 1px solid #6d16c3;
+    align-self: center;
+}
+
+.btnMes.close:hover {
+    background-color: red;
+    border: 1px solid red;
+}
+
+@keyframes showMessage {
+    from {
+        top: -24px;
+        opacity: 0;
+    }
+    to {
+        top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes closeMessage {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+div.clientChangeRow {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 16px;
+}
+
+div.clientAddRow {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+div.message.info.addRow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: var(--width-showMessage);
+    justify-content: flex-start;
+    padding: 24px;
+}
+
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: var(--widthMain);
+}
+
+.table thead {
+    background-color: #6c7ae0;
+    color: white;
+    text-align: left;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    position: sticky;
+    top: 0;
+}
+
+.table td {
+    line-height: 1.2;
+    word-break: break-all;
+    padding: 14px 24px;
+}
+
+.table th {
+    padding: 16px 24px;
+    font-size: 28px;
+}
+
+.table tbody tr:hover {
+    cursor: pointer;
+    background-color: #d3f2ff;
+    color:#57139b;
+    transition: 0.65s;
+}
+
+.table th::selection, .table td::selection, i.icon-set::selection, .table .fileImgLink::selection {
+    background-color: transparent;
+}
+
+td.settings {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+i.material-icons {
+    font-size: 28px;
+}
+
+i.delete {
+    font-size: 38px;
+    transition: 1s; 
+    border-radius: 12px; 
+    color: red;
+    background-color: transparent;
+}
+
+i.sort {
+    font-size: 38px;
+    cursor: pointer;
+}
+
+button.search {
+    border: 1px solid #6c7ae0;
+    background-color: transparent;
+    margin-bottom: 0px !important;
+    color: #6c7ae0;
+}
+
+button.search:hover {
+    background-color: #6c7ae0;
+    color: white;
+}
+
+th::selection {
+    background-color: #6d16c3;
+}
+
+main button.setBtn .textSetBtn {
+    font-size: 24px;
+}
+
+button.setBtn.add {
+    border: 1px solid rgb(66, 154, 126);
+    background-color: white;
+    color: rgb(66, 154, 126);
+}
+
+button.setBtn.add:hover {
+    background-color: rgb(66, 154, 126);
+    color: white;
+    cursor: pointer;
+}
+
+main button.setBtn {
+    position: relative;
+    transition: 1s;
+    padding: 12px 16px;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.add:hover {
+    background-color: rgb(66, 154, 126);
+    color: white;
+}
+
+div.search {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    margin-bottom: 32px;
+}
+
+main button.btnSearch {
+    border: 0px;
+    font-size: 28px;
+    transition: 0.65s;
+    padding: 2px 16px;
+    padding-top: 8px;
+    background-color: #6d16c3;
+    color: white;
+    cursor: pointer;
+}
+
+main section.topManage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+main .searchTable {
+    padding: 14px 18px;
+    font-size: 24px;
+    margin: 0px 8px;
+    border: none;
+    background: #f1f1f1;
+    transition: 0.65s;
+    border-radius: 16px;
+}
+
+main .searchTable:focus {
+    background-color: #ddd;
+}
+
+main .searchTable::selection {
+    background-color: #6d16c3;
+    color: white;
+}
+
+main .searchTable::placeholder {
+    color: gray;
+}
+
+main .notFound {
+    color: red;
+    font-size: 32px;
+}
+
+div.search {
+    margin-left: 0px;
+}
+
+main button.setBtn {
+    margin-bottom: 32px;
+}
+
+main section.topManage {
+    flex-direction: column !important;
+}
+
+main .searchTable {
+    margin: 0px !important;
+}
+
+@media only screen and (max-width: 900px)  {
+    main {
+        margin: 0px 128px;
+    }
+}
+
+@media only screen and (max-width: 800px)  {
+    main {
+        margin: 0px 72px;
+    }
+}   
+
+@media only screen and (max-width: 700px) {
+    main {
+        margin: 0px 32px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    strong.mesTitle.add {
+        font-size: 18px !important;
+        padding-top: 6px !important;
+        min-width: 72px !important;
+    }
+
+    main button.setBtn {
+        margin-bottom: 24px !important;
+    }
+
+    button.setBtn.add {
+        padding: 8px 12px !important;
+    }
+
+    button.setBtn.search {
+        margin-bottom: 0px !important;
+    }
+
+    div.message {
+        padding: 18px !important;
+    }
+
+    main button.setBtn {
+        padding: 8px 16px;
+    }
+
+    i.delete {
+        font-size: 32px !important;
+    }
+
+    .table th {
+        font-size: 28px !important;
+    }
+
+    i.sort {
+        font-size: 32px !important;
+    }
+
+    main .notFound {
+        color: red;
+        font-size: 28px;
+    }
+
+    button.btnMes {
+        font-size: 16px !important;
+        padding: 7.5px 16px !important;
+        margin: 0px !important;
+    }
+
+    input.inputInfo {
+        padding: 6px 8px !important;
+    }
+
+    .table th {
+        font-size: 24px !important;
+    }
+
+    .table td {
+        font-size: 20px !important;
+    }
+
+    div.textmes {
+        flex-direction: column !important;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    div.clientAddRow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button.setBtn.add {
+        padding: 6px 10px !important;
+    }
+
+    span#textErr, div.textmes {
+        font-size: 20px !important;
+    }
+
+    input.inputInfo {
+        margin: 0px;
+        margin-bottom: 12px;
+    }
+
+    button.btnMes {
+        align-self: center;
+    }
+}
+
+:root {
+    --width-showMessage: 0px;
+    --widthMain: 0px;
+    --kWidthSearch: 176;
+    --kWidthInputInfo: 0px;
+}

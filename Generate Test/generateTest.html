@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="generateTest.css">
+    <title>Generate</title>
+</head>
+<body>
+    <main>
+        <div class="input">
+            <input type="text" oninput="checkInputText(this)" id="textMaxSize" name="maxSize" placeholder="Max Size Questions" required class="maxSize">
+            <span class="mesInputText error" id="mesInputText">Nothing</span>
+        </div>
+        <button class="btn-Generate" onclick="generate(this)" id="btn-Generate">Generate</button>
+        <div class="msg-Generate">
+            <div class="icon loader"></div> 
+            <!--<i class="material-icons"></i>-->
+            <!--done clear-->
+            <span id="text">Generate is working</span>
+        </div>
+    </main>
+    <script>
+        class Factorial {
+            static #result = 1;
+            static #first = true;
+
+            static getResult(number) {
+                try {
+                    number = parseInt(Number(number));
+                    if (Factorial.#first) {
+                        Factorial.#result = 1;
+                        Factorial.#first = false;
+                    }
+                    if (number == 1) {
+                        Factorial.#first = true;
+                        return;
+                    }
+                    
+                    Factorial.#result *= number;
+                    Factorial.getResult(number -= 1);
+                    return Factorial.#result;
+                }
+                catch {
+                    Factorial.#first = true;
+                    return Factorial.#result = 1;
+                }
+            }
+        }
+
+        function checkInputText(tagElement) {
+            try {
+                const text = tagElement.value;
+                const mesElement = document.querySelector("div.input>span#mesInputText");
+                const value = Number(text);
+
+                if (text == "") {
+                    try { mesElement.classList.remove("success"); }
+                    catch {}
+                    try { mesElement.classList.add("error"); }
+                    catch {}
+                    mesElement.innerHTML = "Nothing";
+                    return;
+                }
+                if (value == 0) {
+                    mesElement.innerHTML = "Error: Mustn't be zero";
+                    try { mesElement.classList.remove("success"); }
+                    catch {}
+                    finally { mesElement.classList.add("error"); }
+                    return;
+                }
+                if (parseInt(value) == value && text.indexOf(".") == -1) {
+                    mesElement.innerHTML = "Accept: Input is correct";
+                    try { mesElement.classList.remove("error"); }
+                    catch {}
+                    finally { mesElement.classList.add("success"); }
+                }
+                else {
+                    mesElement.innerHTML = "Error: Input isn't correct";
+                    try { mesElement.classList.remove("success"); }
+                    catch {}
+                    finally { mesElement.classList.add("error"); }
+                }
+            }
+            catch {
+                return undefined;
+            }
+        }
+
+        function generate(tagElement) {
+            const mesElement = document.querySelector("div.input>span#mesInputText");
+            if (mesElement.innerHTML != "Accept: Input is correct")
+                return;
+
+            const mesGenerate = document.querySelector("div.msg-Generate");
+            mesGenerate.style.display = "flex";
+        }
+    </script>
+</body>
+</html>

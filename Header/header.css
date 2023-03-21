@@ -13,7 +13,7 @@
 }
 
 header {
-    font-family:'Courier New', Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif !important;
     background-color: black;
     padding: 16px 32px;
 }
@@ -71,6 +71,12 @@ header a {
     text-decoration: none;
 }
 
+a.pages {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
 header .symbolCompany {
     display: flex;
     flex-direction: row;
@@ -90,7 +96,7 @@ header .imgCompany::selection {
 }
 
 header .textCompany {
-    font-size: 32px;
+    font-size: 16px;
     font-variant: small-caps;
     padding-bottom: 4px;
     color: rgb(30, 224, 221);
@@ -154,7 +160,7 @@ header .textCompany::selection {
 
 @media only screen and (max-width: 980px) {
     header .textCompany {
-        font-size: 24px !important;
+        font-size: 18px !important;
     }
 }
 
@@ -178,7 +184,7 @@ header .textCompany::selection {
         width: auto;
         position: absolute;
         background-color: #72bcd4;
-        right: 0px;
+        left: 0px;
         transform: translate(0%, -2%);
     }
 
@@ -201,23 +207,27 @@ header .textCompany::selection {
 
 @media only screen and (max-width: 610px) {
     header ul {
-        right: 0px;
+        left: 0px;
         top: 80px;
-        transform: translate(16px, 0%);
-        width: 100vw;
+        transform: translate(-20px, 0%);
+        width: calc(100% + 36px);
+    }
+
+    header .textCompany {
+        font-size: 12px !important;
     }
 }
 
 @media only screen and (max-width: 420px) {
     header .textCompany {
-        font-size: 18px;
+        font-size: 12px;
     }
 
     header ul {
         right: 0px;
         top: 56px;
-        transform: translate(8px, 0%);
-        width: 100vw;
+        transform: translate(-20px, 0%);
+        width: calc(100vw + 12px);
     }
 
     header li {
@@ -243,8 +253,8 @@ header .textCompany::selection {
 }
 
 @media only screen and (max-width: 320px) {
-    .textCompany {
-        font-size: 20px !important;
+    header .textCompany {
+        font-size: 10px !important;
     }
 
     .imgCompany {
@@ -259,7 +269,7 @@ header .textCompany::selection {
 
 @media only screen and (max-width: 290px) {
     .textCompany {
-        font-size: 18px !important;
+        font-size: 6px !important;
     }
 
     .imgCompany {
@@ -279,7 +289,7 @@ header .textCompany::selection {
 
 @media only screen and (max-width: 240px) {
     .textCompany {
-        font-size: 16px !important;
+        font-size: 4px !important;
     }
 
     .imgCompany {
