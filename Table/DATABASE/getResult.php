@@ -34,6 +34,7 @@
         $conn->close();
     }
     catch (Exception $e) {
+        die ("Error Table");
         $result['table'] = [];
         $result['Exception'] = $e;
         $result['status'] = false;

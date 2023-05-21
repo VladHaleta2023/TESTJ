@@ -18,7 +18,6 @@
         $result['format'] = 'data:image/jpeg;base64,';
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,15 +27,147 @@
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../Header/icons.css">
-    <link rel="stylesheet" href="../Header/header.css">
-    <link rel="stylesheet" href="table.css">
-    <link rel="stylesheet" href="updateRowInfo.css">
+    <link rel="stylesheet" href="../Header/headerStyle.css">
+    <link rel="stylesheet" href="tableStyles.css">
+    <link rel="stylesheet" href="updateRow.css">
+    <link rel="stylesheet" href="connectServer.css">
     <script src="VHD_server.js"></script>
     <script src="VHD_client.js"></script>
     <title>Table</title>
 </head>
-<body onload="loadPageTable()">
-    <header id="header">
+<body onload="loadTable()">
+    <style>
+        div.message {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            font-size: 24px;
+            padding: 16px;
+            width: var(--width-showMessage);
+            position: relative;
+        }
+
+        .table thead {
+            position: sticky;
+            top: 96px;
+            z-index: 1;
+        } 
+
+        .formRowInfo {
+            background-color: white;
+            display: none;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: absolute;
+            padding: 32px 0px;
+            padding-top: 64px !important;
+            top: 96px;
+            left: 0;
+        }
+
+        table.rowInfoTable {
+            border-collapse: collapse;
+            border: 0;
+            width: 100%;
+            height: calc(100% + 128px);
+            margin-top: 0px !important;
+            word-break: break-all;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            justify-content: center; 
+            align-items: center;
+            width: 100%;
+        }
+
+        main section.messages {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 2;
+            width: 300px;
+            top: 0;
+        }
+
+        .headerRowInfo {
+            display: flex; 
+            flex-direction: row;
+        }
+
+        @media only screen and (max-width: 700px)  {
+            table.rowInfoTable tr {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            section#formRowInfo i.material-icons {
+                font-size: 24px !important;
+                margin-right: 4px !important;
+            }
+
+            table.rowInfoTable td.property, table.rowInfoTable td.value {
+                width: 100% !important;
+                text-align: center !important;
+                padding: 12px !important;
+            }
+
+            .textInputRowInfo {
+                width: 100% !important;
+                text-align: center !important;
+            }
+
+            .textInputRowInfo:focus {
+                text-align: start !important;
+            }
+
+            .rowInfo {
+                font-size: 24px !important;
+            }
+
+            label.idRow {
+                font-size: 20px !important;
+            }
+
+            .btnRowInfo {
+                font-size: 24px !important;
+            }
+
+            div.centerPosition {
+                justify-content: center !important;
+            }
+        }
+
+        @media only screen and (max-width: 420px) {
+            .table thead {
+                position: sticky;
+                top: 64px;
+                z-index: 1;
+            } 
+
+            header .imgCompany {
+                width: 32px !important;
+                height: 32px !important;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            .rowInfo {
+                flex-direction: column !important;
+            }
+
+            .headerRowInfo {
+                margin-bottom: 12px !important;
+            }
+        }
+    </style>
+    <header id="header" style="position: sticky; z-index: 1; top: 0;">
         <nav>
             <div class="phone-Content">
                 <button class="phone-Btn" onclick="Header.clickBtnPhone(this)">
@@ -85,7 +216,7 @@
         <section class="formRowInfo" id="formRowInfo">
             <form action="table.php" method="POST" enctype="multipart/form-data">
                 <div class="rowInfo">
-                    <div style="display: flex; flex-direction: row;">
+                    <div class="headerRowInfo">
                         <span style="margin-right: 16px;">Row Info</span>
                         <input style="display: none;" type="text" name="idRow" id="idRow">
                         <label for="idRow" class="idRow" id="labelIdRow"></label>
@@ -93,7 +224,7 @@
                     <div style="display: flex; flex-direction: row;">
                         <input type="submit" style="display: none;" name="upload" id="btnSaveCountry" value="Save">
                         <label onclick="closeRowInfo()" title="Save Data Or Close Form" for="btnSaveCountry" class="btnRowInfo green">
-                            <i style="margin-right: 8px; font-size: 32px !important;" class="material-icons">done</i>
+                            <i style="margin-right: 8px; font-size: 32px;" class="material-icons">done</i>
                             <span>Done</span>
                         </label>
                     </div>
@@ -309,16 +440,15 @@
                 const form = document.querySelector("main>section.formRowInfo>form");
                 if (window.screen.width > 1000) {
                     watchRow.style.padding = `0px auto`;
-                    form.style.width = "900px";
+                    form.style.width = String(window.screen.width - 200) + "px";
                 }
                 else if (window.screen.width > 900) {
                     watchRow.style.padding = `0px auto`;
-                    form.style.width = "800px";
+                    form.style.width = String(window.screen.width - 100) + "px";
                 }
-                else if (window.screen.width > 400)
-                    watchRow.style.padding = "32px";
+                else if (window.screen.width > 700)
+                    watchRow.style.padding = `0px 32px`;
                 else if (window.screen.width > 0) {
-                    document.querySelector("img#imgCountry").parentElement.style.padding = "0px";
                     watchRow.style.padding = "0px";
                 }
 
@@ -332,6 +462,8 @@
         }
 
         function getRowInfo(tagElement) {
+            window.scrollTo(0, 0);
+
             const element = Element.getById(tagElement.id);
             showFormRowInfo();
             document.querySelector("section.topManage").style.display = "none";
@@ -375,27 +507,35 @@
             const main = document.querySelector("main");
             const root = document.querySelector(':root');
             root.style.setProperty("--widthMain", main.clientWidth + "px");
+            root.style.setProperty("--width-showMessage", window.screen.width + "px");
+
             const searchInput = document.querySelector("main>section.topManage>div.search>input#searchTable");
             const widthInput = main.clientWidth;
-            root.style.setProperty("--width-showMessage", window.screen.width + "px");
             searchInput.style.width = widthInput + "px";
         }
 
-        function loadPageTable() {
-            ClientTable.loadTable();
+        function consoleInfo() {
+            console.log(Server.getResult());
+            console.log(Server.getTable());
+        }
+
+        function loadTable() {
             const main = document.querySelector("main");
+            ClientTable.loadTable();
+
             if (window.screen.width > 1000) {
                 main.style.margin = `0px auto`;
-                main.style.width = "900px";
+                main.style.width = String(window.screen.width - 200) + "px";
             }
             else if (window.screen.width > 900) {
                 main.style.margin = `0px auto`;
-                main.style.width = "800px";
+                main.style.width = String(window.screen.width - 100) + "px";
             }
-            else if (window.screen.width > 400)
+            else if (window.screen.width > 700)
                 main.style.margin = "0px 32px";
             else if (window.screen.width > 0)
                 main.style.margin = "0px";
+
             setSizes();
         }
     </script>

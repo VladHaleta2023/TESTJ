@@ -8,6 +8,12 @@
 
     try {
         $conn = mysqli_connect(null, $user, $password, $db, null, $host);
+    }
+    catch (Exception $e) {
+        die ("Error DataBase");
+    }
+
+    try {
         $conn->set_charset('utf8');
         $result['connect']['status'] = true;
         $result['format'] = 'data:image/*;base64,';
